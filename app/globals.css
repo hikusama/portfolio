@@ -2,7 +2,9 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-
+*{
+  color: white;
+}
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -164,9 +166,11 @@ nav .line{
   width: .4rem;
   height: 100%;
   background-color: #7534AA;
+  flex: none;
   border-radius: 0.25rem;
 }
 nav .circle{
+  flex: none;
   width: 1.5rem;
   height: 1.5rem;
   background-color: #7534AA;
