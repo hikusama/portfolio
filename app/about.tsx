@@ -27,29 +27,21 @@ export default function About({ isPlayed, setIsPlayed }: { isPlayed: boolean, se
   }, []);
 
   useEffect(() => {
-    if (!isPlayed) return;
+    const hitlerVideo = hitlerVideoRef.current;
+    if (!hitlerVideo) return;
 
-    const video = hitlerVideoRef.current;
-    if (!video) {
-      return;
+    if (isPlayed) {
+      hitlerVideo.currentTime = 0;
+      hitlerVideo.play().catch(() => { });
+    } else {
+      hitlerVideo.pause();
+      hitlerVideo.currentTime = 0;
     }
 
+    const handleEnded = () => setIsPlayed(false);
+    hitlerVideo.addEventListener("ended", handleEnded);
 
-    const handleEnded = () => {
-      setIsPlayed(false);
-      video.currentTime = 0;
-      video.pause();
-    };
-
-    video.addEventListener("ended", handleEnded);
-
-    video.currentTime = 0;
-    video.play().catch(e => console.log("Play catch:", e.message));
-
-    return () => {
-      console.log("Hitler hidden - removing listener");
-      video.removeEventListener("ended", handleEnded);
-    };
+    return () => hitlerVideo.removeEventListener("ended", handleEnded);
   }, [isPlayed]);
 
   const handleMouseEnter = () => {
@@ -84,39 +76,41 @@ export default function About({ isPlayed, setIsPlayed }: { isPlayed: boolean, se
           <div className="prpart-cont">
             <div className="outer-eye">
               <div className="wrp">
-                {!isPlayed ? (
-                  <>
-                    <div
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                      className="bordered-me"
-                    >
-                      <video
-                        ref={profileVideoRef}
-                        loop
-                        playsInline
-                        src="/videos/profile.mp4"
-                      />
-                    </div>
-                    <img
-                      onMouseEnter={handleMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                      src="/images/Ellipse.png"
-                      alt="Ellipse"
-                    />
-                  </>
-                ) : (
-                  <>
-                    <div className="bordered-me">
-                      <video
-                        ref={hitlerVideoRef}
-                        src="/videos/hitler.mp4"
-                        playsInline
-                      />
-                    </div>
-                    <img src="/images/Ellipse.png" alt="Ellipse" />
-                  </>
-                )}
+
+                <div
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  className="bordered-me"
+                  style={{ display: !isPlayed ? "block" : "none", }}
+
+                >
+                  <video
+                    ref={profileVideoRef}
+                    loop
+                    playsInline
+                    src="/videos/profile.mp4"
+                  />
+                </div>
+                <img
+                  style={{ display: !isPlayed ? "block" : "none", }}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  src="/images/Ellipse.png"
+                  alt="Ellipse"
+                />
+
+                <div className="bordered-me"
+                  style={{ display: isPlayed ? "block" : "none", }}>
+                  <video
+                    ref={hitlerVideoRef}
+                    src="/videos/hitler.mp4"
+                    playsInline
+                  />
+                </div>
+                <img
+                  style={{ display: isPlayed ? "block" : "none", }}
+                  src="/images/Ellipse.png" alt="Ellipse" />
+
               </div>
             </div>
           </div>
