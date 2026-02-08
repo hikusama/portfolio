@@ -44,7 +44,7 @@ export default function About({ isPlayed, setIsPlayed }: { isPlayed: boolean, se
       setLoading(false)
     }, 1000);
   };
-  const texts = ["Hi There!, Its me Hikusama!", "I'm a Full Stack Developer", "I can do Mobile App too.", "BTW..", "Do you hate burat bevelopers?", "Matik..."];
+  const texts = ["Hi There!, Its me Hikusama!", "I'm a Full Stack Developer.", "I can do Mobile App too.", "BTW..", "Do you hate burat Developers?", "Matik..."];
   const [displayed, setDisplayed] = useState("");
   const [textIndex, setTextIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
