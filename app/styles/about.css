@@ -1,3 +1,28 @@
+.about-container {
+    display: grid;
+}
+
+.about {
+    padding-bottom: 5rem;
+    height: 100vh;
+}
+
+#backlight,
+.about {
+    grid-area: 1 / 1;
+}
+
+#backlight {
+    background: black;
+    z-index: 0;
+}
+
+.about {
+    z-index: 1;
+    padding-top: 70px;
+}
+
+
 .abt-main-cont {
     display: grid;
     grid-template-columns: 42rem auto;
@@ -6,6 +31,7 @@
 }
 
 .outer-eye {
+    backdrop-filter: blur(20px);
     border: solid 4px #7534AA;
     border-radius: 12% 88% 41% 59% / 17% 72% 28% 83%;
     height: 25rem;
@@ -24,7 +50,21 @@
     top: 60%;
     left: 60%;
     transform: translate(-50%, -50%);
+    animation: eyewrap 1s ease-in;
 }
+
+@keyframes eyewrap {
+    0% {
+        top: 110%;
+        left: 80%;
+        opacity: 0;
+    }
+
+    60% {
+        top: 60%;
+    }
+}
+
 
 .bordered-me {
     border-radius: 50%;
@@ -43,14 +83,16 @@
     transform: translate(-50%, -50%) scale(1.3);
 }
 
- 
+
 .prpart-cont {
     padding: 2rem 4rem 2rem 3rem;
 }
-.wrp img{
+
+.wrp img {
     position: absolute;
     bottom: 0;
 }
+
 .work {
     display: flex;
     align-items: center;
@@ -72,6 +114,7 @@
     font-size: 1.5rem;
     font-weight: 800;
 }
+
 .work h3 span {
     color: #9e54db;
     font-weight: 700;
@@ -94,7 +137,7 @@
 
 .abt-main-cont .content h1 {
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .abt-main-cont .content h1 span {
@@ -110,6 +153,7 @@
     gap: 1.5rem;
     margin-top: 1rem;
     align-items: end;
+
 }
 
 .stacks>* {
@@ -117,6 +161,9 @@
     flex-direction: column;
     align-items: center;
     gap: .4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: stackIn 0.6s ease forwards;
 }
 
 .stacks p {
@@ -125,6 +172,46 @@
 
 .stacks img {
     height: 24px;
+}
+
+
+.stacks>div:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.stacks>div:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.stacks>div:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.stacks>div:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+.stacks>div:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+.stacks>div:nth-child(6) {
+    animation-delay: 0.75s;
+}
+
+.stacks>div:nth-child(7) {
+    animation-delay: 0.9s;
+}
+
+.stacks>div:nth-child(8) {
+    animation-delay: 1.05s;
+}
+
+@keyframes stackIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .social3 {
@@ -180,4 +267,10 @@
     background-color: transparent;
     color: #9e54db;
     cursor: pointer;
+}
+
+.psx {
+    position: fixed;
+    top: 0;
+    width: 100%;
 }

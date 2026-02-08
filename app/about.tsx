@@ -1,14 +1,13 @@
 "use client";
 
 import Lightning from '@/components/Lightning';
-import HeaderNav from './headerNav';
 import { useEffect, useRef, useState } from 'react';
 
-export default function About() {
+export default function About({ isPlayed, setIsPlayed }: { isPlayed: boolean, setIsPlayed: React.Dispatch<React.SetStateAction<boolean>> }) {
   const profileVideoRef = useRef<HTMLVideoElement | null>(null);
   const hitlerVideoRef = useRef<HTMLVideoElement | null>(null);
 
-  const [isPlayed, setIsPlayed] = useState<boolean>(false);
+  // const [isPlayed, setIsPlayed] = useState<boolean>(false);
 
   useEffect(() => {
     const video = hitlerVideoRef.current;
@@ -25,39 +24,36 @@ export default function About() {
     return () => {
       video.removeEventListener("ended", handleEnded);
     };
-  }, []);  
+  }, []);
 
-useEffect(() => {
-  if (!isPlayed) return; 
+  useEffect(() => {
+    if (!isPlayed) return;
 
-  const video = hitlerVideoRef.current;
-  if (!video) {
-    console.warn("Hitler video ref missing when isPlayed became true");
-    return;
-  }
+    const video = hitlerVideoRef.current;
+    if (!video) {
+      return;
+    }
 
-  console.log("Hitler became visible - attaching ended listener");
 
-  const handleEnded = () => {
-    console.log("ENDED EVENT → forcing isPlayed = false");
-    setIsPlayed(false);
+    const handleEnded = () => {
+      setIsPlayed(false);
+      video.currentTime = 0;
+      video.pause();
+    };
+
+    video.addEventListener("ended", handleEnded);
+
     video.currentTime = 0;
-    video.pause();
-  };
+    video.play().catch(e => console.log("Play catch:", e.message));
 
-  video.addEventListener("ended", handleEnded);
-
-  video.currentTime = 0;
-  video.play().catch(e => console.log("Play catch:", e.message));
-
-  return () => {
-    console.log("Hitler hidden - removing listener");
-    video.removeEventListener("ended", handleEnded);
-  };
-}, [isPlayed]);    
+    return () => {
+      console.log("Hitler hidden - removing listener");
+      video.removeEventListener("ended", handleEnded);
+    };
+  }, [isPlayed]);
 
   const handleMouseEnter = () => {
-    profileVideoRef.current?.play().catch(() => {});
+    profileVideoRef.current?.play().catch(() => { });
   };
 
   const handleMouseLeave = () => {
@@ -70,21 +66,19 @@ useEffect(() => {
   return (
     <div className="about-container relative z-0">
       <div className="absolute top-0 hidden" id="about"></div>
-
-      <div className="absolute z-0">
-        <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
-          <Lightning
+      <div id='backlight' >
+        {
+          isPlayed && <Lightning
             hue={273}
             xOffset={0}
             speed={0.2}
             intensity={1}
             size={0.5}
           />
-        </div>
+        }
       </div>
 
       <div className="about relative z-20">
-        <HeaderNav isPlayed={isPlayed} setIsPlayed={setIsPlayed} />
 
         <div className="abt-main-cont">
           <div className="prpart-cont">
@@ -117,7 +111,6 @@ useEffect(() => {
                       <video
                         ref={hitlerVideoRef}
                         src="/videos/hitler.mp4"
-                        autoPlay
                         playsInline
                       />
                     </div>
@@ -163,11 +156,13 @@ useEffect(() => {
               <div><img src="/images/react.png" alt="" /><p>React</p></div>
               <div><img src="/images/larav.png" alt="" /><p>Laravel</p></div>
               <div><img src="/images/flutter.png" alt="" /><p>Flutter</p></div>
+              <div><img style={{ borderRadius: "50%" }} src="/images/nextjs.png" alt="" /><p>Next.js</p></div>
               <div><img src="/images/mysql.png" alt="" /><p>MySQL</p></div>
               <div><img src="/images/html.png" alt="" /><p>HTML</p></div>
               <div><img src="/images/css.png" alt="" /><p>CSS</p></div>
               <div><img src="/images/js.png" alt="" /><p>JavaScript</p></div>
             </div>
+
 
             <div className="social3">
               <a title="linkedIn" href="https://www.linkedin.com/in/ramillano-incent-e-a5b0a5338/" target="_blank" rel="noopener noreferrer">
