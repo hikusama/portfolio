@@ -1,7 +1,7 @@
 'use client';
 import Image from "next/image";
 import HeaderNav from './headerNav';
-import About from "./about";
+import About from "@/components/about";
 import { useState } from "react";
 
 export default function Home() {
