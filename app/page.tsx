@@ -3,6 +3,7 @@ import Image from "next/image";
 import HeaderNav from './headerNav';
 import About from "@/components/about";
 import { useState } from "react";
+import SkillsAndTech from "@/components/skillsAndTech";
 
 export default function Home() {
   const [isPlayed, setIsPlayed] = useState<boolean>(false);
@@ -33,7 +34,8 @@ export default function Home() {
           </li>
         </ul>
       </div>
-     
+      
+      <SkillsAndTech isPlayed={isPlayed} />
     </main>
   );
 }
