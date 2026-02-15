@@ -7,12 +7,12 @@
     height: 100vh;
 }
 
-#backlight,
+.backlight,
 .about {
     grid-area: 1 / 1;
 }
 
-#backlight {
+.backlight {
     background: black;
     z-index: 0;
 }
