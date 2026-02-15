@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./styles/about.css";
+import "./styles/sknt.css";
 import "./globals.css";
 import Script from "next/script";
 
