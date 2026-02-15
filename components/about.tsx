@@ -167,7 +167,7 @@ export default function About({ isPlayed, setIsPlayed }: { isPlayed: boolean, se
     <>
       <div className="about-container relative z-0">
         <div className="absolute top-0 hidden" id="about"></div>
-        <div id='backlight' >
+        <div className='backlight' >
           {
             isPlayed && <Lightning
               hue={273}
