@@ -12,6 +12,10 @@ export default function About({ isPlayed, setIsPlayed }: { isPlayed: boolean, se
   const targetRef = useRef<HTMLDivElement | null>(null);
   const loaderRef = useRef<HTMLDivElement | null>(null);
 
+  useEffect(() => {
+    document.body.classList.add("loading");
+  }, []);
+
   const startAnimation = () => {
     if (!targetRef.current || !loaderRef.current) return;
 
@@ -37,10 +41,7 @@ export default function About({ isPlayed, setIsPlayed }: { isPlayed: boolean, se
     loader.style.transform = `translate(calc(-50% + ${deltaX + 7}px), calc(-50% + ${deltaY}px))`;
 
     setTimeout(() => {
-      // loader.style.opacity = "0";
-      // loader.style.pointerEvents = "none";
-      document.body.style.overflow = 'visible'
-      document.body.style.height = 'unset'
+      document.body.classList.remove("loading");
       setLoading(false)
     }, 1000);
   };
