@@ -19,7 +19,7 @@ gap: 1rem;
     height: 25rem;
     border: solid 1px #7534AA;
     border-radius: .8rem;
-    padding: 1.8rem 1.2rem 1.2rem;
+    padding: 1.8rem 1.2rem ;
     display: grid;
     gap: 1rem;
     grid-template-rows:auto minmax(0,1fr);
@@ -38,21 +38,24 @@ gap: 1rem;
 }
 .sknt section ol ul > *{
     font-size: .9rem;
-    border: solid 1px #7534AA;
+    border: solid 1px #7534aa95;
     height: fit-content;
     width: 7rem;
-    padding: .5rem;
+    padding: .7rem .5rem;
     border-radius: .8rem;
     display: flex;
     align-items: center;
     gap: .3rem;
 }
 .sknt .sft li{
-  width: fit-content;
+  width: 18rem;
 }
 .sknt section ol ul > *:hover{
     cursor: pointer;
     background-color: #321747ca;
+}
+.sknt section ol ul > *:hover img{
+    animation: hvpa .2s ease-in-out 1;
 }
 .sknt section ol ul > *:hover i{
     animation: hvpa .2s ease-in-out 1;
@@ -75,4 +78,21 @@ gap: 1rem;
 
 .sknt section ol ul > * i{
     color: #7534AA;
+}
+.hsnt i,
+.hsnt h1{
+    color: #7534AA;
+}
+.hsnt p i{
+    opacity: 1 !important;
+    position: absolute;
+    margin-top: .25rem;
+    transform: translateX(-1.5rem);
+}
+.hsnt p{
+    position: relative;
+    color: #9d9d9d;
+    margin-top: .5rem;
+    font-size:.9rem ;
+    padding: 0 2rem;
 }

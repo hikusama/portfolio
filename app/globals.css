@@ -659,7 +659,18 @@ main {
     background-color: #7534aa8c;
   }
 
+  .hsnt {
+    text-align: center;
+  }
 
+  .hsnt p i {
+    position: unset;
+    transform: translateX(0);
+  }
+
+  .hsnt p {
+    padding: 0 5rem;
+  }
 }
 
 .scrolled>* {

@@ -26,8 +26,8 @@ export default function SkillsAndTech({ isPlayed }: { isPlayed: boolean }) {
                     } */}
                 </div>
                 <section style={{gridArea: '1/1'}}>
-                    <div>
-                        <h1><span><i className="fa-solid fa-head-side-virus"></i></span> Skills & Technologies</h1>
+                    <div className='hsnt px-8'>
+                        <h1 className='text-2xl'><span><i className="fa-solid fa-head-side-virus"></i></span> Skills & Technologies</h1>
                         <p><span><i className="fas fa-circle"></i></span> Proficient in modern web and application development technologies, with experience in full-stack development and development tools.</p>
                     </div>
                     <div>

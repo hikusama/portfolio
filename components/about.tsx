@@ -254,7 +254,7 @@ export default function About({ isPlayed, setIsPlayed }: { isPlayed: boolean, se
                 <p>I Hate Burat-Developers.</p>
               </div>
 
-              <div className="stacks">
+              <div className={`stacks ${!isLoading && 'stackson'}`}>
                 <div><img src="/images/react.png" alt="" /><p>React</p></div>
                 <div><img src="/images/larav.png" alt="" /><p>Laravel</p></div>
                 <div><img src="/images/flutter.png" alt="" /><p>Flutter</p></div>
