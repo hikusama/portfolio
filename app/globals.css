@@ -130,10 +130,14 @@
 }
 
 body {
-  overflow: hidden;
-  height: 100vh;
   scrollbar-width: thin;
   scrollbar-gutter: stable both-edges;
+  background: #000;
+}
+
+body.loading {
+  overflow: hidden;
+  height: 100vh;
 }
 
 /* h-17.5 flex items-center justify-center */

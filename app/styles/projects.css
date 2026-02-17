@@ -1,0 +1,352 @@
+.projects-section {
+  position: relative;
+  min-height: 100vh;
+  background: #000;
+  overflow: hidden;
+  padding: 5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.projects-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(117, 52, 170, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 80%, rgba(117, 52, 170, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.projects-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.projects-header {
+  margin-bottom: 4rem;
+}
+
+.projects-header h1 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.projects-header h1 .projects-icon {
+  color: #7534aa;
+}
+
+.text-purple {
+  color: #9e54db;
+}
+
+.dot-accent {
+  display: inline-block;
+  width: 0.6rem;
+  height: 0.6rem;
+  background-color: #7534aa;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 0.25rem;
+}
+
+.projects-header p {
+  color: #a0a0a0;
+  font-size: 0.95rem;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* Carousel */
+.projects-carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 520px;
+  perspective: 1200px;
+}
+
+.carousel-card {
+  position: absolute;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 360px;
+  transform-style: preserve-3d;
+}
+
+/* Project card */
+.project-card {
+  background: linear-gradient(145deg, rgba(20, 8, 35, 0.95), rgba(10, 4, 18, 0.98));
+  border: 1px solid rgba(117, 52, 170, 0.35);
+  border-radius: 1rem;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(117, 52, 170, 0.2);
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 1.25rem;
+}
+
+.project-info h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.project-info > p {
+  color: #a0a0a0;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  padding: 0.25rem 0.7rem;
+  border: 1px solid rgba(117, 52, 170, 0.5);
+  border-radius: 0.5rem;
+  font-size: 0.7rem;
+  color: #c9a5e8;
+  background: rgba(117, 52, 170, 0.1);
+  white-space: nowrap;
+}
+
+.project-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.confidential {
+  font-size: 0.72rem;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.confidential i {
+  color: #888;
+}
+
+.demo-btn {
+  padding: 0.4rem 1.2rem;
+  border: 1px solid #7534aa;
+  border-radius: 2rem;
+  color: #fff;
+  font-size: 0.78rem;
+  background: rgba(117, 52, 170, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.demo-btn:hover {
+  background: #7534aa;
+}
+
+/* Carousel arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(117, 52, 170, 0.25);
+  border: 1px solid rgba(117, 52, 170, 0.5);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.carousel-arrow:hover {
+  background: #7534aa;
+  border-color: #9e54db;
+}
+
+.carousel-arrow i {
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+.carousel-arrow-left {
+  left: 0;
+}
+
+.carousel-arrow-right {
+  right: 0;
+}
+
+/* Carousel dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(117, 52, 170, 0.3);
+  border: 1px solid rgba(117, 52, 170, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: #7534aa;
+  border-color: #9e54db;
+  transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+  background: rgba(117, 52, 170, 0.6);
+}
+
+/* Floating particles */
+.projects-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  background: #7534aa;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: floatParticle ease-in-out infinite;
+}
+
+@keyframes floatParticle {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.7;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .carousel-card {
+    width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 4rem 1.2rem;
+  }
+  .projects-header h1 {
+    font-size: 1.6rem;
+  }
+  .projects-header p {
+    font-size: 0.85rem;
+  }
+  .projects-header {
+    margin-bottom: 2.5rem;
+  }
+  .projects-carousel {
+    min-height: 480px;
+  }
+  .carousel-card {
+    width: 300px;
+  }
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+  }
+  .carousel-arrow i {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 3rem 0.75rem 4rem;
+  }
+  .projects-header {
+    padding: 0 0.25rem;
+    margin-bottom: 2rem;
+  }
+  .projects-header h1 {
+    font-size: 1.4rem;
+  }
+  .projects-carousel {
+    min-height: 450px;
+  }
+  .carousel-card {
+    width: 270px;
+  }
+  .project-image {
+    height: 160px;
+  }
+  .project-info {
+    padding: 1rem;
+  }
+  .carousel-arrow-left {
+    left: -0.25rem;
+  }
+  .carousel-arrow-right {
+    right: -0.25rem;
+  }
+  .carousel-arrow {
+    width: 32px;
+    height: 32px;
+  }
+}

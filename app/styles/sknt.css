@@ -1,3 +1,9 @@
+.sknt {
+  position: relative;
+  z-index: 1;
+  background: #000;
+  padding: 5rem 2rem;
+}
 .sknt .backlight{
   pointer-events: none;
 }

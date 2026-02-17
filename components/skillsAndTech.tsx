@@ -5,7 +5,7 @@ import LaserFlow from '@/components/LaserFlow';
 export default function SkillsAndTech({ isPlayed }: { isPlayed: boolean }) {
     return (
         <>
-            <div className="sknt grid">
+            <div className="sknt grid" id="skills">
                 <div className='backlight' >
                     {/* {
                         !isPlayed &&
@@ -25,10 +25,21 @@ export default function SkillsAndTech({ isPlayed }: { isPlayed: boolean }) {
                         />
                     } */}
                 </div>
-                <section style={{gridArea: '1/1'}}>
-                    <div className='hsnt px-8'>
-                        <h1 className='text-2xl'><span><i className="fa-solid fa-head-side-virus"></i></span> Skills & Technologies</h1>
-                        <p><span><i className="fas fa-circle"></i></span> Proficient in modern web and application development technologies, with experience in full-stack development and development tools.</p>
+                <section style={{ gridArea: '1/1' }}>
+                    <div className="projects-header">
+                        <h1>
+                            <span className="projects-icon">
+                                <i className="fa-solid fa-head-side-virus" />
+                            </span>{" "}
+                            Skills & <span className="text-purple">Technologies</span>
+                        </h1>
+                        <p>
+                            <span className="dot-accent" />{" "}
+                            <span className="text-purple">
+                                Sharing some of the skills and technologies
+                            </span>{" "}
+                            {"Proficient in modern web and application development technologies, with experience in full-stack development and development tools."}
+                        </p>
                     </div>
                     <div>
 
