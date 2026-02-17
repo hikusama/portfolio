@@ -5,7 +5,7 @@ import LaserFlow from '@/components/LaserFlow';
 export default function SkillsAndTech({ isPlayed }: { isPlayed: boolean }) {
     return (
         <>
-            <div className="sknt grid">
+            <div className="sknt grid" id="skills">
                 <div className='backlight' >
                     {/* {
                         !isPlayed &&
